@@ -1,5 +1,5 @@
 
-markdownCopy code# Deploying AWS Infrastructure and EC2 Instance with NGINX using Terraform
+# Deploying AWS Infrastructure and EC2 Instance with NGINX using Terraform
 
 This project automates the creation of a complete **AWS network infrastructure** and launches an **Amazon EC2 instance** running **NGINX** on **Amazon Linux 2**.  
 Terraform handles every step — from creating the **VPC**, **subnets**, and **route tables** to provisioning the **EC2 instance** and configuring **NGINX** via `user_data`.
@@ -99,4 +99,5 @@ bashCopy code<h1>Hello from Ranjeeth’s Terraform-powered EC2 Server 🚀</h1>
 🧠 References
 Terraform AWS Provider Documentation
 Terraform CLI Reference
+
 NGINX Official Documentation
