@@ -19,13 +19,13 @@ When you apply this Terraform configuration, it will:
 Once deployed, you can access your instance’s **public IP** in a web browser to see:
 > “Hello from NGINX on Amazon Linux 2!”
 ---
-## Prerequisites 🛠️
+ Prerequisites 🛠️
 Before running this Terraform setup, ensure that you have:
 * An active **AWS Account**
 * **Terraform** installed [Download → Terraform](https://developer.hashicorp.com/terraform/downloads)
 * **AWS CLI** configured with credentials:
 
-## aws configure
+ aws configure
  Proper IAM permissions for managing VPC, EC2, and networking
 components
 📁 File Structure
@@ -41,11 +41,11 @@ bashCopy codeterraform-aws-nginx/
 └── README.md # Project documentation (this file)
  ```
 
-##⚙️ Terraform Backend
+⚙️ Terraform Backend
 The backend.tf file configures Terraform to store its state remotely in Amazon S3.
 Make sure your backend bucket exists before initializing Terraform.
 
-##🧾 User Data Script (for EC2 Instance)
+🧾 User Data Script (for EC2 Instance)
 This script runs automatically on instance startup to install and configure NGINX:
 
  ```bash
@@ -57,7 +57,7 @@ systemctl start nginx
  ```
 
 This ensures NGINX starts on boot and serves the default welcome page.
-##🚀 Terraform Workflow
+🚀 Terraform Workflow
 Run these commands from your project directory:
  ```bash
 # Initialize Terraform and backend
@@ -81,12 +81,13 @@ http://<public_ip>
  ```
 You should see:
 Hello from NGINX on Amazon Linux 2!
-##🧹 Cleanup
+🧹 Cleanup
 To prevent unnecessary AWS charges, destroy all created resources when you’re
 done:
  ```bash
 terraform destroy -var-file="dev.tfvars"
  ```
+
 
 
 
