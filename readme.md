@@ -1,4 +1,5 @@
 # Deploying AWS Infrastructure and EC2 Instance with NGINX using Terraform
+
 This project automates the creation of a complete **AWS network infrastructure** and
 launches an **Amazon EC2 instance** running **NGINX** on **Amazon Linux 2**.
 Terraform handles every step — from creating the **VPC**, **subnets**, and **route
@@ -87,5 +88,6 @@ done:
  ```bash
 terraform destroy -var-file="dev.tfvars"
  ```
+
 
 
