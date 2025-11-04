@@ -4,6 +4,7 @@ launches an **Amazon EC2 instance** running **NGINX** on **Amazon Linux 2**.
 Terraform handles every step — from creating the **VPC**, **subnets**, and **route
 tables** to provisioning the **EC2 instance** and configuring **NGINX** via `user_data`.
 ---
+
 ## Overview 🧩
 When you apply this Terraform configuration, it will:
 1. Create a **VPC** with a configurable CIDR block.
@@ -86,4 +87,5 @@ done:
  ```bash
 terraform destroy -var-file="dev.tfvars"
  ```
+
 
