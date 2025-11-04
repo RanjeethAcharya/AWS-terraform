@@ -22,15 +22,14 @@ Once deployed, you can access your instance’s **public IP** in a web browser t
 ## Prerequisites 🛠️
 Before running this Terraform setup, ensure that you have:
 * An active **AWS Account**
-* **Terraform** installed [Download →
-Terraform](https://developer.hashicorp.com/terraform/downloads)
+* **Terraform** installed [Download → Terraform](https://developer.hashicorp.com/terraform/downloads)
 * **AWS CLI** configured with credentials:
- ```bash
+
  aws configure
  Proper IAM permissions for managing VPC, EC2, and networking
 components
 📁 File Structure
-
+ ```bash
 bashCopy codeterraform-aws-nginx/
 │
 ├── backend.tf # Terraform backend configuration (S3)
@@ -40,21 +39,28 @@ bashCopy codeterraform-aws-nginx/
 ├── dev.tfvars # Development environment variables
 ├── prod.tfvars # Production environment variables
 └── README.md # Project documentation (this file)
+ ```
 
 ⚙️ Terraform Backend
 The backend.tf file configures Terraform to store its state remotely in Amazon S3.
 Make sure your backend bucket exists before initializing Terraform.
+
 🧾 User Data Script (for EC2 Instance)
 This script runs automatically on instance startup to install and configure NGINX:
-bashCopy code#!/bin/bash
+
+ ```bash
+#!/bin/bash
 yum update -y
 yum install nginx -y
 systemctl enable nginx
 systemctl start nginx
+ ```
+
 This ensures NGINX starts on boot and serves the default welcome page.
 🚀 Terraform Workflow
 Run these commands from your project directory:
-bashCopy code# Initialize Terraform and backend
+ ```bash
+# Initialize Terraform and backend
 terraform init
 # Validate the configuration
 terraform validate
@@ -65,14 +71,19 @@ terraform apply -var-file="dev.tfvars"
 # Destroy all resources when finished
 terraform destroy -var-file="dev.tfvars"
 You can switch environments by replacing dev.tfvars with prod.tfvars.
+ ```
 🌐 Accessing Your EC2 Instance
 Once the deployment is complete, Terraform will output the public IP address of
 your EC2 instance.
 Open it in your browser:
-cppCopy codehttp://<public_ip>
+ ```bash
+http://<public_ip>
+ ```
 You should see:
 Hello from NGINX on Amazon Linux 2!
 🧹 Cleanup
 To prevent unnecessary AWS charges, destroy all created resources when you’re
 done:
-bashCopy codeterraform destroy -var-file="dev.tfvars"
+ ```bash
+terraform destroy -var-file="dev.tfvars"
+ ```
